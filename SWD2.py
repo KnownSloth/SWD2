@@ -153,6 +153,12 @@ heated_seats = True if heated_seats == "Yes" else False
 filtered_cars = expert_system.filter_by_fuel_type(fuel_type)
 print(f"After fuel type filter: {len(filtered_cars)} cars found")
 
+filtered_cars = [car for car in filtered_cars if car.transmission == transmission]
+print(f"After transmission filter: {len(filtered_cars)} cars found")
+
+filtered_cars = [car for car in filtered_cars if car.country_of_origin == country_of_origin]
+print(f"After country of origin filter: {len(filtered_cars)} cars found")
+
 filtered_cars = [car for car in filtered_cars if min_year <= car.year <= max_year]
 print(f"After year filter: {len(filtered_cars)} cars found")
 
@@ -162,14 +168,8 @@ print(f"After horsepower filter: {len(filtered_cars)} cars found")
 filtered_cars = [car for car in filtered_cars if car.body_type == body_type]
 print(f"After body type filter: {len(filtered_cars)} cars found")
 
-filtered_cars = [car for car in filtered_cars if car.transmission == transmission]
-print(f"After transmission filter: {len(filtered_cars)} cars found")
-
 filtered_cars = [car for car in filtered_cars if min_price <= car.price <= max_price]
 print(f"After price filter: {len(filtered_cars)} cars found")
-
-filtered_cars = [car for car in filtered_cars if car.heated_seats == heated_seats]
-print(f"After heated seats filter: {len(filtered_cars)} cars found")
 
 filtered_cars = [car for car in filtered_cars if car.trunk_volume >= min_trunk_volume]
 print(f"After trunk volume filter: {len(filtered_cars)} cars found")
@@ -177,8 +177,8 @@ print(f"After trunk volume filter: {len(filtered_cars)} cars found")
 filtered_cars = [car for car in filtered_cars if car.wheel_size >= min_wheel_size]
 print(f"After wheel size filter: {len(filtered_cars)} cars found")
 
-filtered_cars = [car for car in filtered_cars if car.country_of_origin == country_of_origin]
-print(f"After country of origin filter: {len(filtered_cars)} cars found")
+filtered_cars = [car for car in filtered_cars if car.heated_seats == heated_seats]
+print(f"After heated seats filter: {len(filtered_cars)} cars found")
 
 # Display the search results
 print("Search results:")
